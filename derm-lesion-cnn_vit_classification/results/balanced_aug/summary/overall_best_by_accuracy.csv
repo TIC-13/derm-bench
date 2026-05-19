@@ -1,0 +1,11 @@
+dataset,best_model,accuracy
+HAM10000,dinov3_convnext_tiny,0.940100
+HC,dinov3_convnext_large,0.828900
+ISIC18,convnext_large,0.925900
+ISIC24,resnet152,0.853300
+PAD,convnext_tiny,0.930300
+ddi,dinov3_convnext_tiny,0.888900
+merged,dinov3_convnext_large,0.885600
+merged_clinic,dinov3_convnext_large,0.862800
+merged_dermatoscopic,dinov3_convnext_tiny,0.911400
+sd-198,dinov3_convnext_large,0.831300

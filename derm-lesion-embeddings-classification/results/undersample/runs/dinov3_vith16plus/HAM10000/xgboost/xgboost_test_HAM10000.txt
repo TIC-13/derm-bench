@@ -1,0 +1,18 @@
+Model: xgboost_test
+Dataset: HAM10000
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8248
+Precision: 0.7194
+Recall:    0.8540
+F1-score:  0.7481
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.98      0.81      0.89       963
+   malignant       0.46      0.90      0.61       173
+
+    accuracy                           0.82      1136
+   macro avg       0.72      0.85      0.75      1136
+weighted avg       0.90      0.82      0.84      1136

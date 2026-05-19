@@ -1,0 +1,18 @@
+Model: random_forest_test
+Dataset: PAD
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8159
+Precision: 0.7574
+Recall:    0.7236
+F1-score:  0.7372
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.66      0.54      0.59        50
+   malignant       0.86      0.91      0.88       151
+
+    accuracy                           0.82       201
+   macro avg       0.76      0.72      0.74       201
+weighted avg       0.81      0.82      0.81       201

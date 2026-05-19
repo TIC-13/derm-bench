@@ -1,0 +1,18 @@
+Model: xgboost_test
+Dataset: merged
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8089
+Precision: 0.7812
+Recall:    0.8121
+F1-score:  0.7904
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.91      0.80      0.85      1318
+   malignant       0.65      0.82      0.73       597
+
+    accuracy                           0.81      1915
+   macro avg       0.78      0.81      0.79      1915
+weighted avg       0.83      0.81      0.81      1915

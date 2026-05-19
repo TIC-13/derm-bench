@@ -1,0 +1,18 @@
+Model: svm_test
+Dataset: HAM10000
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8072
+Precision: 0.7062
+Recall:    0.8436
+F1-score:  0.7302
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.98      0.79      0.87       963
+   malignant       0.44      0.90      0.59       173
+
+    accuracy                           0.81      1136
+   macro avg       0.71      0.84      0.73      1136
+weighted avg       0.89      0.81      0.83      1136

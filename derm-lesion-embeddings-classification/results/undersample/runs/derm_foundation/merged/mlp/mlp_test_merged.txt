@@ -1,0 +1,18 @@
+Model: mlp_test
+Dataset: merged
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8627
+Precision: 0.8364
+Recall:    0.8649
+F1-score:  0.8470
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.94      0.86      0.90      1318
+   malignant       0.74      0.87      0.80       597
+
+    accuracy                           0.86      1915
+   macro avg       0.84      0.86      0.85      1915
+weighted avg       0.87      0.86      0.87      1915

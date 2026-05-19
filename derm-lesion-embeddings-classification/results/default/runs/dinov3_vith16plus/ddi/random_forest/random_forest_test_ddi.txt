@@ -1,0 +1,18 @@
+Model: random_forest_test
+Dataset: ddi
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8148
+Precision: 0.8091
+Recall:    0.7237
+F1-score:  0.7467
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.82      0.95      0.88        19
+   malignant       0.80      0.50      0.62         8
+
+    accuracy                           0.81        27
+   macro avg       0.81      0.72      0.75        27
+weighted avg       0.81      0.81      0.80        27

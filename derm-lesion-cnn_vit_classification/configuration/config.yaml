@@ -1,0 +1,52 @@
+models:
+  - dinov3_convnext_tiny_backbone_freezed
+  - dinov3_convnext_tiny
+  - dinov3_convnext_large
+  - dinov3_convnext_large_backbone_freezed
+  - efficientnet_b0
+  - efficientnet_b7
+  - convnext_tiny
+  - convnext_base
+  - convnext_large
+  - resnet18
+  - resnet152
+  - vit_l_16
+  - vit_b_32
+  - densenet121
+  - densenet161
+
+datasets:
+  - HAM10000
+  - ISIC18
+  - ISIC24
+  - HAM10000_SEGMENTED
+  - ISIC18_SEGMENTED
+  - ISIC24_SEGMENTED
+  - PAD
+  - HC
+  - ddi
+  - sd-198
+  - merged_clinic
+  - merged_dermatoscopic
+  - merged
+
+classes:
+  - benign
+  - malignant
+
+hyperparams:
+  batch_size: 128
+  num_epochs: 100
+  learning_rate: 0.00001
+  weight_decay: 0.0001
+  early_stopping_patience: 10
+  num_workers: 4
+  input_size: [224, 224]
+  seed: 42
+  t_max: 100
+  eta_min: 0.000001
+
+dataset_path: ../datasets
+runs_output_path: ./results/unbalanced/runs/
+csv_output_path: ./results/unbalanced/summary/
+plot_dir: ./results/unbalanced/results_plots/

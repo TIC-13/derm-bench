@@ -1,0 +1,28 @@
+{
+  "resource": "dinov2_giant",
+  "backbone": "facebook/dinov2-giant",
+  "model_name": "random_forest",
+  "dataset": "ddi",
+  "n_trials": 10,
+  "cv_splits": 5,
+  "scoring": "f1_macro",
+  "class_order": [
+    "benign",
+    "malignant"
+  ],
+  "best_params": {
+    "n_estimators": 100,
+    "max_depth": 17,
+    "min_samples_split": 8,
+    "min_samples_leaf": 4,
+    "max_features": "sqrt",
+    "criterion": "entropy"
+  },
+  "metrics_on_validation": {
+    "accuracy": 0.857143,
+    "precision_macro": 0.8625,
+    "recall_macro": 0.822222,
+    "f1_macro": 0.836257,
+    "auc": 0.888889
+  }
+}

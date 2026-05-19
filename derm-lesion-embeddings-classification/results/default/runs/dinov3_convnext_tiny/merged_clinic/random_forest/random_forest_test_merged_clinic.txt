@@ -1,0 +1,18 @@
+Model: random_forest_test
+Dataset: merged_clinic
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.7854
+Precision: 0.7857
+Recall:    0.7871
+F1-score:  0.7852
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.75      0.81      0.78       318
+   malignant       0.82      0.76      0.79       367
+
+    accuracy                           0.79       685
+   macro avg       0.79      0.79      0.79       685
+weighted avg       0.79      0.79      0.79       685

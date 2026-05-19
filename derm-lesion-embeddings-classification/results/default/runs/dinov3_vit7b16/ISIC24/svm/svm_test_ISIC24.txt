@@ -1,0 +1,18 @@
+Model: svm_test
+Dataset: ISIC24
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.7600
+Precision: 0.7486
+Recall:    0.7486
+F1-score:  0.7486
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.80      0.80      0.80        91
+   malignant       0.69      0.69      0.69        59
+
+    accuracy                           0.76       150
+   macro avg       0.75      0.75      0.75       150
+weighted avg       0.76      0.76      0.76       150

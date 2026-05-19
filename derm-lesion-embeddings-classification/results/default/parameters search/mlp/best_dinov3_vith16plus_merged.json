@@ -1,0 +1,29 @@
+{
+  "model_name": "dinov3_vith16plus",
+  "dataset": "merged",
+  "batch_size": 2056,
+  "best_f1_macro": 0.856437,
+  "best_type": "layers=1, units=128, width=pyramid, act=gelu, bn=True, dropout=on(0.44)",
+  "best_params": {
+    "n_hidden_layers": 1,
+    "hidden_units": 128,
+    "width_scheme": "pyramid",
+    "activation": "gelu",
+    "use_batch_norm": true,
+    "use_dropout": true,
+    "dropout": 0.43740430082459236,
+    "use_weight_decay": true,
+    "weight_decay": 6.199100007802264e-07,
+    "lr": 2.2264204303769678e-05,
+    "optimizer": "adam",
+    "patience": 10,
+    "min_delta": 0.0001
+  },
+  "metrics_on_validation": {
+    "accuracy": 0.836901,
+    "precision_macro": 0.835448,
+    "recall_macro": 0.839459,
+    "f1_macro": 0.836042,
+    "auc": 0.920041
+  }
+}

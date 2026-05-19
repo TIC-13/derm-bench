@@ -1,0 +1,11 @@
+models/
+
+__pycache__/
+
+*.pth
+*.pt
+*.ckpt
+*.log
+*.tflite
+*.onnx
+*.h5

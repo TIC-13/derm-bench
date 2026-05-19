@@ -1,0 +1,18 @@
+Model: xgboost_test
+Dataset: ISIC18
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.7852
+Precision: 0.6870
+Recall:    0.8059
+F1-score:  0.7054
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.96      0.78      0.86       909
+   malignant       0.41      0.84      0.55       171
+
+    accuracy                           0.79      1080
+   macro avg       0.69      0.81      0.71      1080
+weighted avg       0.87      0.79      0.81      1080

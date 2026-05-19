@@ -1,0 +1,27 @@
+{
+  "resource": "derm_foundation",
+  "backbone": "google/derm-foundation",
+  "model_name": "xgboost",
+  "dataset": "ddi",
+  "n_trials": 10,
+  "cv_splits": 5,
+  "scoring": "f1_macro",
+  "class_order": [
+    "benign",
+    "malignant"
+  ],
+  "best_params": {
+    "n_estimators": 700,
+    "max_depth": 4,
+    "learning_rate": 0.027010527749605478,
+    "subsample": 0.7465447373174767,
+    "colsample_bytree": 0.7824279936868144
+  },
+  "metrics_on_validation": {
+    "accuracy": 0.928571,
+    "precision_macro": 0.922222,
+    "recall_macro": 0.922222,
+    "f1_macro": 0.922222,
+    "auc": 0.961111
+  }
+}

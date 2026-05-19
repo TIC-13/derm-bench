@@ -1,0 +1,11 @@
+dataset,best_model,macro_f1
+HAM10000,dinov3_convnext_large,0.881800
+HC,convnext_large,0.828100
+ISIC18,vit_b_32,0.842800
+ISIC24,dinov3_convnext_large,0.830200
+PAD,convnext_large,0.916200
+ddi,efficientnet_b7,0.911200
+merged,vit_b_32,0.866400
+merged_clinic,convnext_large,0.855500
+merged_dermatoscopic,vit_l_16,0.838400
+sd-198,dinov3_convnext_large,0.855200

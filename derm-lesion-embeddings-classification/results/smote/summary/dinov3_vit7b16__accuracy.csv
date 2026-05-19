@@ -1,0 +1,11 @@
+dataset,mlp
+HAM10000,0.952500
+HC,0.812800
+ISIC18,0.935200
+ISIC24,0.760000
+PAD,0.935300
+ddi,0.851900
+merged,0.898200
+merged_clinic,0.889100
+merged_dermatoscopic,0.908100
+sd-198,0.939800

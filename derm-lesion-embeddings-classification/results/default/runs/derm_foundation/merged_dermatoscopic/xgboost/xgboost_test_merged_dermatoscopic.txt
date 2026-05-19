@@ -1,0 +1,18 @@
+Model: xgboost_test
+Dataset: merged_dermatoscopic
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8959
+Precision: 0.8778
+Recall:    0.7569
+F1-score:  0.7982
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.90      0.98      0.94      1000
+   malignant       0.85      0.53      0.66       230
+
+    accuracy                           0.90      1230
+   macro avg       0.88      0.76      0.80      1230
+weighted avg       0.89      0.90      0.89      1230

@@ -1,0 +1,100 @@
+resources:
+  derm_foundation:
+    model_name: "google/derm-foundation"
+    dataset_path: "./embeddings_datasets/derm_foundation"
+    train_output_path: "./results/default/runs/derm_foundation"
+    input_dim: 6144
+
+  dinov2_giant:
+    model_name: "facebook/dinov2-giant"
+    dataset_path: "./embeddings_datasets/dinov2_giant"
+    train_output_path: "./results/default/runs/dinov2_giant"
+    input_dim: 1536
+
+  dinov3_convnext_tiny:
+    model_name: "dinov3_convnext_tiny"
+    dataset_path: "./embeddings_datasets/dinov3_convnext_tiny"
+    train_output_path: "./results/default/runs/dinov3_convnext_tiny"
+    input_dim: 768
+
+  dinov3_vith16plus:
+    model_name: "dinov3_vith16plus"
+    dataset_path: "./embeddings_datasets/dinov3_vith16plus"
+    train_output_path: "./results/default/runs/dinov3_vith16plus"
+    input_dim: 1280
+
+  dinov3_vit7b16:
+    model_name: "dinov3_vit7b16"
+    dataset_path: "./embeddings_datasets/dinov3_vit7b16"
+    train_output_path: "./results/default/runs/dinov3_vit7b16"
+    input_dim: 4096
+
+dataset_root_folder: "../datasets"
+csv_output_path: "./results/default/summary"
+plot_root: "./results/default/plots"
+plots_dataset: "./results/default/dataset_plot/"
+plots_label: "./results/default/label_plots/"
+
+datasets:
+  - ddi
+  - sd-198
+  - PAD
+  - HC
+  - ISIC24
+  - ISIC18
+  - HAM10000
+  - merged_clinic
+  - merged_dermatoscopic
+  - merged
+
+models:
+  - random_forest
+  - xgboost
+  - svm
+  - mlp
+
+partitions:
+  - train_metadata.h5
+  - validation_metadata.h5
+  - test_metadata.h5
+
+extraction_batch_size: 2056
+cuda_empty_cache_every_batch: True
+
+dataset_colors:
+  ISIC18: red
+  ISIC24: blue
+  PAD: green
+  HC: orange
+  ddi: gray
+  sd-198: yellow
+  HAM10000: pink
+
+label_colors:
+  benign: green,
+  malignant: red,
+
+augmentation:
+  enabled: false
+  per_image: 5
+  rotation_degrees: 15
+  resized_crop_size: 224
+  resized_crop_scale: [0.8, 1.0]
+  resized_crop_ratio: [0.9, 1.1]
+  brightness: 0.2
+  blur_sigma: [0.1, 1.2]
+  hflip_p: 0.5
+  vflip_p: 0.5
+  affine:
+    enabled: true
+    translate: [0.02, 0.02]
+    scale: [1.0, 1.0]
+    shear: 0.0
+    fill_white: true
+
+undersampling:
+  enabled: false
+  method: min_class # min_class | max_per_class | ratio
+  max_per_class: 0  # if method=max_per_class
+  ratio: 1.0  # if method=ratio (1.0 = balanced)
+  random_state: 42

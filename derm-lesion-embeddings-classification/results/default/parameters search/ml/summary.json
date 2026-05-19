@@ -1,0 +1,402 @@
+[
+  {
+    "resource": "derm_foundation",
+    "backbone": "google/derm-foundation",
+    "model_name": "random_forest",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 600,
+      "max_depth": 3,
+      "min_samples_split": 10,
+      "min_samples_leaf": 5,
+      "max_features": "sqrt",
+      "criterion": "entropy"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.821429,
+      "precision_macro": 0.812821,
+      "recall_macro": 0.838889,
+      "f1_macro": 0.815547,
+      "auc": 0.944444
+    }
+  },
+  {
+    "resource": "derm_foundation",
+    "backbone": "google/derm-foundation",
+    "model_name": "xgboost",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 700,
+      "max_depth": 4,
+      "learning_rate": 0.027010527749605478,
+      "subsample": 0.7465447373174767,
+      "colsample_bytree": 0.7824279936868144
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.928571,
+      "precision_macro": 0.922222,
+      "recall_macro": 0.922222,
+      "f1_macro": 0.922222,
+      "auc": 0.961111
+    }
+  },
+  {
+    "resource": "derm_foundation",
+    "backbone": "google/derm-foundation",
+    "model_name": "svm",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "C": 0.5611516415334505,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.821429,
+      "precision_macro": 0.812821,
+      "recall_macro": 0.838889,
+      "f1_macro": 0.815547,
+      "auc": 0.911111
+    }
+  },
+  {
+    "resource": "dinov2_giant",
+    "backbone": "facebook/dinov2-giant",
+    "model_name": "random_forest",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 100,
+      "max_depth": 17,
+      "min_samples_split": 8,
+      "min_samples_leaf": 4,
+      "max_features": "sqrt",
+      "criterion": "entropy"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.857143,
+      "precision_macro": 0.8625,
+      "recall_macro": 0.822222,
+      "f1_macro": 0.836257,
+      "auc": 0.888889
+    }
+  },
+  {
+    "resource": "dinov2_giant",
+    "backbone": "facebook/dinov2-giant",
+    "model_name": "xgboost",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 700,
+      "max_depth": 5,
+      "learning_rate": 0.05864129169696527,
+      "subsample": 0.8186841117373118,
+      "colsample_bytree": 0.6739417822102108
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.75,
+      "precision_macro": 0.72807,
+      "recall_macro": 0.716667,
+      "f1_macro": 0.721195,
+      "auc": 0.888889
+    }
+  },
+  {
+    "resource": "dinov2_giant",
+    "backbone": "facebook/dinov2-giant",
+    "model_name": "svm",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "C": 0.5611516415334505,
+      "gamma": "scale",
+      "kernel": "rbf"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.785714,
+      "precision_macro": 0.770833,
+      "recall_macro": 0.788889,
+      "f1_macro": 0.775401,
+      "auc": 0.85
+    }
+  },
+  {
+    "resource": "dinov3_convnext_tiny",
+    "backbone": "dinov3_convnext_tiny",
+    "model_name": "random_forest",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 100,
+      "max_depth": 17,
+      "min_samples_split": 8,
+      "min_samples_leaf": 4,
+      "max_features": "sqrt",
+      "criterion": "entropy"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.75,
+      "precision_macro": 0.72807,
+      "recall_macro": 0.716667,
+      "f1_macro": 0.721195,
+      "auc": 0.733333
+    }
+  },
+  {
+    "resource": "dinov3_convnext_tiny",
+    "backbone": "dinov3_convnext_tiny",
+    "model_name": "xgboost",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 200,
+      "max_depth": 5,
+      "learning_rate": 0.05958389350068958,
+      "subsample": 0.7727780074568463,
+      "colsample_bytree": 0.7164916560792167
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.678571,
+      "precision_macro": 0.642857,
+      "recall_macro": 0.616667,
+      "f1_macro": 0.61991,
+      "auc": 0.755556
+    }
+  },
+  {
+    "resource": "dinov3_convnext_tiny",
+    "backbone": "dinov3_convnext_tiny",
+    "model_name": "svm",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "C": 0.8168455894760165,
+      "gamma": "scale",
+      "kernel": "poly"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.75,
+      "precision_macro": 0.729947,
+      "recall_macro": 0.738889,
+      "f1_macro": 0.733333,
+      "auc": 0.711111
+    }
+  },
+  {
+    "resource": "dinov3_vith16plus",
+    "backbone": "dinov3_vith16plus",
+    "model_name": "random_forest",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 600,
+      "max_depth": 3,
+      "min_samples_split": 10,
+      "min_samples_leaf": 5,
+      "max_features": "sqrt",
+      "criterion": "entropy"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.714286,
+      "precision_macro": 0.697917,
+      "recall_macro": 0.711111,
+      "f1_macro": 0.700535,
+      "auc": 0.844444
+    }
+  },
+  {
+    "resource": "dinov3_vith16plus",
+    "backbone": "dinov3_vith16plus",
+    "model_name": "xgboost",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 200,
+      "max_depth": 5,
+      "learning_rate": 0.05958389350068958,
+      "subsample": 0.7727780074568463,
+      "colsample_bytree": 0.7164916560792167
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.75,
+      "precision_macro": 0.729947,
+      "recall_macro": 0.738889,
+      "f1_macro": 0.733333,
+      "auc": 0.761111
+    }
+  },
+  {
+    "resource": "dinov3_vith16plus",
+    "backbone": "dinov3_vith16plus",
+    "model_name": "svm",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "C": 1.6409286730647923,
+      "gamma": "scale",
+      "kernel": "poly"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.714286,
+      "precision_macro": 0.714286,
+      "recall_macro": 0.733333,
+      "f1_macro": 0.708333,
+      "auc": 0.85
+    }
+  },
+  {
+    "resource": "dinov3_vit7b16",
+    "backbone": "dinov3_vit7b16",
+    "model_name": "random_forest",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 500,
+      "max_depth": 13,
+      "min_samples_split": 2,
+      "min_samples_leaf": 4,
+      "max_features": null,
+      "criterion": "gini"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.75,
+      "precision_macro": 0.72807,
+      "recall_macro": 0.716667,
+      "f1_macro": 0.721195,
+      "auc": 0.738889
+    }
+  },
+  {
+    "resource": "dinov3_vit7b16",
+    "backbone": "dinov3_vit7b16",
+    "model_name": "xgboost",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "n_estimators": 900,
+      "max_depth": 5,
+      "learning_rate": 0.013940346079873234,
+      "subsample": 0.8736932106048627,
+      "colsample_bytree": 0.7760609974958406
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.678571,
+      "precision_macro": 0.65508,
+      "recall_macro": 0.661111,
+      "f1_macro": 0.657143,
+      "auc": 0.8
+    }
+  },
+  {
+    "resource": "dinov3_vit7b16",
+    "backbone": "dinov3_vit7b16",
+    "model_name": "svm",
+    "dataset": "ddi",
+    "n_trials": 10,
+    "cv_splits": 5,
+    "scoring": "f1_macro",
+    "class_order": [
+      "benign",
+      "malignant"
+    ],
+    "best_params": {
+      "C": 1.6409286730647923,
+      "gamma": "scale",
+      "kernel": "poly"
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.785714,
+      "precision_macro": 0.770833,
+      "recall_macro": 0.788889,
+      "f1_macro": 0.775401,
+      "auc": 0.822222
+    }
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "model_name": "facebook/dinov2-giant",
+  "dataset": "merged",
+  "batch_size": 2056,
+  "best_f1_macro": 0.850291,
+  "best_type": "layers=1, units=512, width=pyramid, act=relu, bn=False, dropout=off",
+  "best_params": {
+    "n_hidden_layers": 1,
+    "hidden_units": 512,
+    "width_scheme": "pyramid",
+    "activation": "relu",
+    "use_batch_norm": false,
+    "use_dropout": false,
+    "use_weight_decay": true,
+    "weight_decay": 4.3760446347244004e-05,
+    "lr": 0.0001268672126210485,
+    "optimizer": "adamw",
+    "patience": 10,
+    "min_delta": 0.0001
+  },
+  "metrics_on_validation": {
+    "accuracy": 0.839959,
+    "precision_macro": 0.838125,
+    "recall_macro": 0.837299,
+    "f1_macro": 0.83769,
+    "auc": 0.92189
+  }
+}

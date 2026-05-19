@@ -1,0 +1,25 @@
+{
+  "resource": "dinov3_vith16plus",
+  "backbone": "dinov3_vith16plus",
+  "model_name": "svm",
+  "dataset": "ddi",
+  "n_trials": 10,
+  "cv_splits": 5,
+  "scoring": "f1_macro",
+  "class_order": [
+    "benign",
+    "malignant"
+  ],
+  "best_params": {
+    "C": 1.6409286730647923,
+    "gamma": "scale",
+    "kernel": "poly"
+  },
+  "metrics_on_validation": {
+    "accuracy": 0.714286,
+    "precision_macro": 0.714286,
+    "recall_macro": 0.733333,
+    "f1_macro": 0.708333,
+    "auc": 0.85
+  }
+}

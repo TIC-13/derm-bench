@@ -1,0 +1,18 @@
+Model: random_forest_test
+Dataset: ISIC24
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.7733
+Precision: 0.7746
+Recall:    0.7417
+F1-score:  0.7498
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.77      0.89      0.83        91
+   malignant       0.78      0.59      0.67        59
+
+    accuracy                           0.77       150
+   macro avg       0.77      0.74      0.75       150
+weighted avg       0.77      0.77      0.77       150

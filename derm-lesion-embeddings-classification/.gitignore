@@ -1,0 +1,12 @@
+embeddings_datasets/
+__pycache__/
+models/
+
+*.pkl
+*.pb
+*.pth
+*.pt
+*.h5
+*.ckpt
+*.tflite
+*.onnx

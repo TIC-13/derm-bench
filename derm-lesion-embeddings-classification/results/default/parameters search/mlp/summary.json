@@ -1,0 +1,144 @@
+[
+  {
+    "model_name": "google/derm-foundation",
+    "dataset": "merged",
+    "batch_size": 2056,
+    "best_f1_macro": 0.875722,
+    "best_type": "layers=1, units=1024, width=pyramid, act=leaky_relu, bn=True, dropout=on(0.31)",
+    "best_params": {
+      "n_hidden_layers": 1,
+      "hidden_units": 1024,
+      "width_scheme": "pyramid",
+      "activation": "leaky_relu",
+      "use_batch_norm": true,
+      "use_dropout": true,
+      "dropout": 0.3136396976291964,
+      "use_weight_decay": true,
+      "weight_decay": 3.4630370261191806e-08,
+      "lr": 1.2424747083660186e-05,
+      "optimizer": "adam",
+      "patience": 10,
+      "min_delta": 0.0001
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.868502,
+      "precision_macro": 0.867415,
+      "recall_macro": 0.865745,
+      "f1_macro": 0.866504,
+      "auc": 0.938609
+    }
+  },
+  {
+    "model_name": "facebook/dinov2-giant",
+    "dataset": "merged",
+    "batch_size": 2056,
+    "best_f1_macro": 0.850291,
+    "best_type": "layers=1, units=512, width=pyramid, act=relu, bn=False, dropout=off",
+    "best_params": {
+      "n_hidden_layers": 1,
+      "hidden_units": 512,
+      "width_scheme": "pyramid",
+      "activation": "relu",
+      "use_batch_norm": false,
+      "use_dropout": false,
+      "use_weight_decay": true,
+      "weight_decay": 4.3760446347244004e-05,
+      "lr": 0.0001268672126210485,
+      "optimizer": "adamw",
+      "patience": 10,
+      "min_delta": 0.0001
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.839959,
+      "precision_macro": 0.838125,
+      "recall_macro": 0.837299,
+      "f1_macro": 0.83769,
+      "auc": 0.92189
+    }
+  },
+  {
+    "model_name": "dinov3_convnext_tiny",
+    "dataset": "merged",
+    "batch_size": 2056,
+    "best_f1_macro": 0.818431,
+    "best_type": "layers=3, units=128, width=constant, act=leaky_relu, bn=True, dropout=off",
+    "best_params": {
+      "n_hidden_layers": 3,
+      "hidden_units": 128,
+      "width_scheme": "constant",
+      "activation": "leaky_relu",
+      "use_batch_norm": true,
+      "use_dropout": false,
+      "use_weight_decay": false,
+      "lr": 0.004584154780136381,
+      "optimizer": "adam",
+      "weight_decay": 0.0,
+      "patience": 10,
+      "min_delta": 0.0001
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.821611,
+      "precision_macro": 0.819169,
+      "recall_macro": 0.819881,
+      "f1_macro": 0.819503,
+      "auc": 0.893743
+    }
+  },
+  {
+    "model_name": "dinov3_vith16plus",
+    "dataset": "merged",
+    "batch_size": 2056,
+    "best_f1_macro": 0.856437,
+    "best_type": "layers=1, units=128, width=pyramid, act=gelu, bn=True, dropout=on(0.44)",
+    "best_params": {
+      "n_hidden_layers": 1,
+      "hidden_units": 128,
+      "width_scheme": "pyramid",
+      "activation": "gelu",
+      "use_batch_norm": true,
+      "use_dropout": true,
+      "dropout": 0.43740430082459236,
+      "use_weight_decay": true,
+      "weight_decay": 6.199100007802264e-07,
+      "lr": 2.2264204303769678e-05,
+      "optimizer": "adam",
+      "patience": 10,
+      "min_delta": 0.0001
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.836901,
+      "precision_macro": 0.835448,
+      "recall_macro": 0.839459,
+      "f1_macro": 0.836042,
+      "auc": 0.920041
+    }
+  },
+  {
+    "model_name": "dinov3_vit7b16",
+    "dataset": "merged",
+    "batch_size": 2056,
+    "best_f1_macro": 0.872777,
+    "best_type": "layers=1, units=512, width=pyramid, act=relu, bn=False, dropout=off",
+    "best_params": {
+      "n_hidden_layers": 1,
+      "hidden_units": 512,
+      "width_scheme": "pyramid",
+      "activation": "relu",
+      "use_batch_norm": false,
+      "use_dropout": false,
+      "use_weight_decay": true,
+      "weight_decay": 4.3760446347244004e-05,
+      "lr": 0.0001268672126210485,
+      "optimizer": "adamw",
+      "patience": 10,
+      "min_delta": 0.0001
+    },
+    "metrics_on_validation": {
+      "accuracy": 0.866463,
+      "precision_macro": 0.865183,
+      "recall_macro": 0.863913,
+      "f1_macro": 0.864502,
+      "auc": 0.94303
+    }
+  }
+]

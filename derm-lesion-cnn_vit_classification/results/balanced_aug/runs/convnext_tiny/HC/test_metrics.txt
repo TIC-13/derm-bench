@@ -1,0 +1,15 @@
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8182
+Precision: 0.8179
+Recall:    0.8182
+F1-score:  0.8178
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign     0.8263    0.8502    0.8381       207
+   malignant     0.8075    0.7784    0.7927       167
+
+    accuracy                         0.8182       374
+   macro avg     0.8169    0.8143    0.8154       374
+weighted avg     0.8179    0.8182    0.8178       374

@@ -1,0 +1,11 @@
+dataset,best_embedding,best_model,f1_avg
+HAM10000,dinov3_vit7b16,mlp,0.805000
+HC,derm_foundation,mlp,0.868200
+ISIC18,dinov3_vith16plus,mlp,0.779700
+ISIC24,derm_foundation,mlp,0.833300
+PAD,dinov3_vit7b16,mlp,0.912400
+ddi,dinov3_vit7b16,random_forest,0.871200
+merged,derm_foundation,svm,0.858300
+merged_clinic,derm_foundation,mlp,0.887200
+merged_dermatoscopic,dinov3_vit7b16,mlp,0.806900
+sd-198,derm_foundation,svm,0.963800

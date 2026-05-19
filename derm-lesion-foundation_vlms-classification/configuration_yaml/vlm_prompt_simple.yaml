@@ -1,0 +1,16 @@
+system_prompt: |
+  You are an expert dermatologist. Your job is to classify skin lesion images accurately based on their visual features and known dermatological knowledge.
+
+user_prompt: |
+  Classify this image in the following classes:
+    - benign
+    - malignant
+
+  Provide the answer using only one of the following labels:
+    [benign, malignant]
+
+  Output only the label — do not include explanations, just the word.
+
+  Output example 1: 'benign'
+
+  Output example 2: 'malignant'

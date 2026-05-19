@@ -1,0 +1,18 @@
+Model: svm_test
+Dataset: sd-198
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.9157
+Precision: 0.9160
+Recall:    0.9155
+F1-score:  0.9156
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.91      0.93      0.92        42
+   malignant       0.93      0.90      0.91        41
+
+    accuracy                           0.92        83
+   macro avg       0.92      0.92      0.92        83
+weighted avg       0.92      0.92      0.92        83

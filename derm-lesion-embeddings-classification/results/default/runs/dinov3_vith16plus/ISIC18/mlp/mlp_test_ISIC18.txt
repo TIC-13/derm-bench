@@ -1,0 +1,18 @@
+Model: mlp_test
+Dataset: ISIC18
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.9241
+Precision: 0.8699
+Recall:    0.8338
+F1-score:  0.8504
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.95      0.97      0.96       909
+   malignant       0.79      0.70      0.75       171
+
+    accuracy                           0.92      1080
+   macro avg       0.87      0.83      0.85      1080
+weighted avg       0.92      0.92      0.92      1080

@@ -1,0 +1,18 @@
+Model: random_forest_test
+Dataset: sd-198
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8554
+Precision: 0.8634
+Recall:    0.8545
+F1-score:  0.8544
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.81      0.93      0.87        42
+   malignant       0.91      0.78      0.84        41
+
+    accuracy                           0.86        83
+   macro avg       0.86      0.85      0.85        83
+weighted avg       0.86      0.86      0.85        83

@@ -1,0 +1,57 @@
+models:
+  ## DUAL ENCODER HUGGING FACE MODELS ###
+  - openai/clip-vit-large-patch14
+  - openai/clip-vit-base-patch32
+  - google/medsiglip-448
+  - hf-hub:microsoft/BiomedCLIP-PubMedBERT_256-vit_base_patch16_224
+
+  ## VLM INSTRUCT MODELS ###
+  # HUGGING FACE MODELS
+  - Qwen/Qwen2-VL-2B-Instruct
+  - Qwen/Qwen2.5-VL-3B-Instruct
+  - google/medgemma-4b-it
+  - microsoft/Phi-3.5-vision-instruct
+  - google/medgemma-1.5-4b-it
+
+  # OLLAMA MODELS
+  - llama3.2-vision:11b
+  - gemma3:27b
+  - llama4:16x17b
+  - qwen2.5vl:72b
+  - llama3.2-vision:90b
+
+datasets_root_path: ../datasets
+
+datasets:
+  # NO EXTRA INFO DATASETS
+  - ddi
+  - sd-198
+
+  # EXTRA INFO DATASETS
+  - HC
+  - PAD
+  - ISIC24
+  - ISIC18
+  - HAM10000
+
+  # MERGED VERSIONS
+  - merged_clinic
+  - merged_dermatoscopic
+  - merged
+
+# CONFIGURATIONS PROMPT FILES
+configs:
+  - vlm_dual_encoder 
+  - vlm_prompt_simple
+  - vlm_prompt_patient_info
+  - vlm_prompt_abcde_rules
+
+# PATHS
+report_paths:
+  - ./results/reports/vlm_dual_encoder
+  - ./results/reports/vlm_prompt_simple
+  - ./results/reports/vlm_prompt_patient_info
+  - ./results/reports/vlm_prompt_abcde_rules
+
+csv_output_path: ./results/summaries/
+plot_root: ./results/plots/

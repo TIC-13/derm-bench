@@ -1,0 +1,18 @@
+Model: xgboost_test
+Dataset: sd-198
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8795
+Precision: 0.8805
+Recall:    0.8792
+F1-score:  0.8794
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.86      0.90      0.88        42
+   malignant       0.90      0.85      0.88        41
+
+    accuracy                           0.88        83
+   macro avg       0.88      0.88      0.88        83
+weighted avg       0.88      0.88      0.88        83

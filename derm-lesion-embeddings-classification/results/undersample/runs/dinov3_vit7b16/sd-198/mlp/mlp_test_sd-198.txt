@@ -1,0 +1,18 @@
+Model: mlp_test
+Dataset: sd-198
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.9518
+Precision: 0.9531
+Recall:    0.9515
+F1-score:  0.9517
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.93      0.98      0.95        42
+   malignant       0.97      0.93      0.95        41
+
+    accuracy                           0.95        83
+   macro avg       0.95      0.95      0.95        83
+weighted avg       0.95      0.95      0.95        83

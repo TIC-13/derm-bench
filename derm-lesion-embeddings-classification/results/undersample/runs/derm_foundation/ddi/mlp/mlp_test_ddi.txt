@@ -1,0 +1,18 @@
+Model: mlp_test
+Dataset: ddi
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.6667
+Precision: 0.6335
+Recall:    0.6546
+F1-score:  0.6346
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.81      0.68      0.74        19
+   malignant       0.45      0.62      0.53         8
+
+    accuracy                           0.67        27
+   macro avg       0.63      0.65      0.63        27
+weighted avg       0.71      0.67      0.68        27

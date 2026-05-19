@@ -1,0 +1,18 @@
+Model: random_forest_test
+Dataset: merged_dermatoscopic
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8496
+Precision: 0.8532
+Recall:    0.6129
+F1-score:  0.6416
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.85      0.99      0.91      1000
+   malignant       0.86      0.23      0.37       230
+
+    accuracy                           0.85      1230
+   macro avg       0.85      0.61      0.64      1230
+weighted avg       0.85      0.85      0.81      1230

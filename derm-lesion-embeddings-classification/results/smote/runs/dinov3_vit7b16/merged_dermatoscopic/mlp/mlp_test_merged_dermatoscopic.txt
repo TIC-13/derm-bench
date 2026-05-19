@@ -1,0 +1,18 @@
+Model: mlp_test
+Dataset: merged_dermatoscopic
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.9081
+Precision: 0.8678
+Recall:    0.8146
+F1-score:  0.8375
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.93      0.96      0.94      1000
+   malignant       0.81      0.67      0.73       230
+
+    accuracy                           0.91      1230
+   macro avg       0.87      0.81      0.84      1230
+weighted avg       0.90      0.91      0.90      1230

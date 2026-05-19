@@ -1,0 +1,26 @@
+datasets_root_dir: "../datasets"
+
+merge_groups:
+  merged_clinic:
+    output_dir: "merged_clinic"
+    included_datasets:
+      - "HC"
+      - "PAD"
+      - "ddi"
+      - "sd-198"
+
+  merged_dermatoscopic:
+    output_dir: "merged_dermatoscopic"
+    included_datasets:
+      - "ISIC18"
+      - "ISIC24"
+
+  merged:
+    output_dir: "merged"
+    included_datasets:
+      - "HC"
+      - "PAD"
+      - "ddi"
+      - "sd-198"
+      - "ISIC18"
+      - "ISIC24"

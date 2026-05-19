@@ -1,0 +1,18 @@
+Model: xgboost_test
+Dataset: ddi
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8148
+Precision: 0.7778
+Recall:    0.7961
+F1-score:  0.7854
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.89      0.84      0.86        19
+   malignant       0.67      0.75      0.71         8
+
+    accuracy                           0.81        27
+   macro avg       0.78      0.80      0.79        27
+weighted avg       0.82      0.81      0.82        27

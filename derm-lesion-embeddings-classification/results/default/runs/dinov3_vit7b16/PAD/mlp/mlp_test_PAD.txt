@@ -1,0 +1,18 @@
+Model: mlp_test
+Dataset: PAD
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.9502
+Precision: 0.9289
+Recall:    0.9401
+F1-score:  0.9343
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.88      0.92      0.90        50
+   malignant       0.97      0.96      0.97       151
+
+    accuracy                           0.95       201
+   macro avg       0.93      0.94      0.93       201
+weighted avg       0.95      0.95      0.95       201
