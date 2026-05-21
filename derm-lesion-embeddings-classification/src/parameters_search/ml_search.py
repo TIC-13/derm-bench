@@ -1,4 +1,5 @@
 import json
+import joblib
 from pathlib import Path
 from typing import Dict, Any, List, Tuple
 
@@ -31,9 +32,7 @@ class MLParameterSearch:
         self,
         config_path: str,
         n_trials: int = 10,
-        cv_splits: int = 5,
         scoring: str = "f1_macro",
-        random_state: int = 42,
     ):
         with open(config_path, "r") as f:
             self.config = yaml.safe_load(f)
@@ -44,9 +43,7 @@ class MLParameterSearch:
 
         self.undersampling_cfg = self.config.get("undersampling", {})
         self.n_trials = int(n_trials)
-        self.cv_splits = int(cv_splits)
         self.scoring = scoring
-        self.random_state = int(random_state)
 
         self.out_root = Path("results_pure") / "parameters search" / "ml"
         self.out_root.mkdir(parents=True, exist_ok=True)
@@ -58,8 +55,7 @@ class MLParameterSearch:
         }
 
         print(
-            f"[Init] MLParameterSearch | trials={self.n_trials} | cv_splits={self.cv_splits} "
-            f"| scoring={self.scoring} | seed={self.random_state}"
+            f"[Init] MLParameterSearch | trials={self.n_trials} | scoring={self.scoring}"
         )
 
     def _resolve_models_for_resource(self, resource: Dict[str, Any]) -> List[str]:
@@ -124,7 +120,7 @@ class MLParameterSearch:
                 print(
                     f"\n=== OPTUNA ML SEARCH ===\n"
                     f"Resource: {resource_key} | Backbone: {backbone_name} | Dataset: {dataset}\n"
-                    f"Trials={self.n_trials} | CV={self.cv_splits} | Scoring={self.scoring}\n"
+                    f"Trials={self.n_trials} | Scoring={self.scoring}\n"
                     f"Output: {out_base}"
                 )
 
@@ -149,8 +145,7 @@ class MLParameterSearch:
 
                     print(
                         f"[RUN] Algo={model_name} | Resource={resource_key} | Dataset={dataset} | "
-                        f"Backbone={backbone_name} | trials={self.n_trials} | cv={self.cv_splits} | "
-                        f"scoring={self.scoring}"
+                        f"Backbone={backbone_name} | trials={self.n_trials} | scoring={self.scoring}"
                     )
 
                     best_params = model_wrapper.tune_with_optuna(
@@ -159,8 +154,6 @@ class MLParameterSearch:
                         n_trials=self.n_trials,
                         save_path=str(out_dir / "best_params.pkl"),
                         scoring=self.scoring,
-                        cv_splits=self.cv_splits,
-                        random_state=self.random_state,
                     )
 
                     estimator = model_wrapper.build_model(best_params)
@@ -184,7 +177,6 @@ class MLParameterSearch:
                         "model_name": model_name,
                         "dataset": dataset,
                         "n_trials": int(self.n_trials),
-                        "cv_splits": int(self.cv_splits),
                         "scoring": self.scoring,
                         "class_order": list(map(str, label_encoder.classes_)),
                         "best_params": best_params,
