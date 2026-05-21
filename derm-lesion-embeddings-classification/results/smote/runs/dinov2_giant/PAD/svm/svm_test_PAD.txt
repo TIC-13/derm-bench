@@ -1,0 +1,18 @@
+Model: svm_test
+Dataset: PAD
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.9154
+Precision: 0.8795
+Recall:    0.9036
+F1-score:  0.8904
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.80      0.88      0.84        50
+   malignant       0.96      0.93      0.94       151
+
+    accuracy                           0.92       201
+   macro avg       0.88      0.90      0.89       201
+weighted avg       0.92      0.92      0.92       201

@@ -7,7 +7,7 @@ from transformers import (
     Llama4ForConditionalGeneration
 )
 
-from ..utils.base_model import BaseImageTextModel
+from .base_model import BaseImageTextModel
 
 
 class LlamaModel(BaseImageTextModel):

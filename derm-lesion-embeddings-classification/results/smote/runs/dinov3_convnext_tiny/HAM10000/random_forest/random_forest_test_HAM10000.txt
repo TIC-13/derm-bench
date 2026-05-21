@@ -1,0 +1,18 @@
+Model: random_forest_test
+Dataset: HAM10000
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8671
+Precision: 0.8669
+Recall:    0.5731
+F1-score:  0.5916
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.87      1.00      0.93       963
+   malignant       0.87      0.15      0.26       173
+
+    accuracy                           0.87      1136
+   macro avg       0.87      0.57      0.59      1136
+weighted avg       0.87      0.87      0.82      1136

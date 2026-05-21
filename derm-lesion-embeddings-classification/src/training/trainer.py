@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 import pandas as pd
@@ -18,8 +17,6 @@ from src.mlp_trainer.dataloader import MLPDatasetLoader
 from src.metrics.metrics_manager import MetricsManager
 from src.embeddings.data_utils import DataUtils
 from src.embeddings.undersampling import UndersamplingUtils
-from src.config.seed_setting import set_global_seed
-
 
 class TrainingPipeline:
     def __init__(
@@ -27,14 +24,14 @@ class TrainingPipeline:
             resources,
             datasets,
             models,
-            undersampling_cfg=None
+            undersampling_cfg: dict = None,
+            smote: dict = None
     ) -> None:
-        set_global_seed()
-
         self.resources = resources
         self.datasets = datasets
         self.models = models
         self.undersampling_cfg = undersampling_cfg or {}
+        self.smote = smote or {}
         self.metrics_manager = MetricsManager()
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.label_encoder = LabelEncoder()
@@ -125,7 +122,6 @@ class TrainingPipeline:
             results = self._train_eval_classic_ml(
                 train_df=train_df,
                 test_df=test_df,
-                dataset=dataset,
                 model_name=model_name,
                 output_path=current_output_path,
             )
@@ -173,7 +169,15 @@ class TrainingPipeline:
         model_name: str,
         output_path: Path,
     ) -> dict:
-        data_loader = MLPDatasetLoader(train_df, val_df, test_df)
+        data_loader = MLPDatasetLoader(
+            train_df,
+            val_df,
+            test_df,
+            use_smote=self.smote.get("enabled"),
+            smote_ratio=self.smote.get("ratio"),
+            smote_seed=self.smote.get("random_state"),
+        )
+
         train_loader, val_loader, test_loader = data_loader.get_loaders()
 
         model = MLPClassifier(
@@ -195,7 +199,7 @@ class TrainingPipeline:
         model_save_path = output_path / "mlp_model.pth"
         torch.save(model.state_dict(), model_save_path)
 
-        test_acc, test_prec, test_rec, test_f1, test_report, y_test, y_test_pred, test_probs, test_auc = trainer.test(
+        test_acc, test_prec, test_rec, test_f1, test_report, y_test, y_test_pred, test_probs, _ = trainer.test(
             label_encoder=self.label_encoder
         )
 
@@ -227,7 +231,6 @@ class TrainingPipeline:
         self,
         train_df: pd.DataFrame,
         test_df: pd.DataFrame,
-        dataset: str,
         model_name: str,
         output_path: Path,
     ) -> dict:

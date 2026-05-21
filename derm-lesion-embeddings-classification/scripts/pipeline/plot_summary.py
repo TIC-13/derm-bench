@@ -1,4 +1,4 @@
-from os import path as osp
+import os
 import argparse
 
 import yaml
@@ -9,7 +9,7 @@ from src.metrics.plot_summary import ModelPerformancePlotter
 
 def first_existing(paths: list[str]) -> str | None:
     for p in paths:
-        if osp.isfile(p):
+        if os.path.isfile(p):
             return p
     return None
 
@@ -30,17 +30,17 @@ if __name__ == "__main__":
     skipped: list[str] = []
 
     for name, resource in tqdm(items, desc="Generating plots", unit="resource"):
-        base_name = osp.basename(osp.normpath(resource.get("summary_name", name)))
-        output_dir = resource.get("output_summary_plot", osp.join(plot_root, name))
+        base_name = os.path.basename(os.path.normpath(resource.get("summary_name", name)))
+        output_dir = resource.get("output_summary_plot", os.path.join(plot_root, name))
 
         csv_paths = [
             first_existing([
-                osp.join(csv_dir, f"{base_name}__f1_avg.csv"),
-                osp.join(csv_dir, f"{base_name}_f1_avg.csv"),
+                os.path.join(csv_dir, f"{base_name}__f1_avg.csv"),
+                os.path.join(csv_dir, f"{base_name}_f1_avg.csv"),
             ]),
             first_existing([
-                osp.join(csv_dir, f"{base_name}__accuracy.csv"),
-                osp.join(csv_dir, f"{base_name}_accuracy.csv"),
+                os.path.join(csv_dir, f"{base_name}__accuracy.csv"),
+                os.path.join(csv_dir, f"{base_name}_accuracy.csv"),
             ]),
         ]
 
@@ -59,17 +59,17 @@ if __name__ == "__main__":
         if not found_any:
             skipped.append(name)
 
-    overall_output_dir = osp.join(plot_root, "overall")
+    overall_output_dir = os.path.join(plot_root, "overall")
 
     overall_csv_paths = [
-        osp.join(csv_dir, "overall_best_by_f1_avg.csv"),
-        osp.join(csv_dir, "overall_best_by_accuracy.csv"),
+        os.path.join(csv_dir, "overall_best_by_f1_avg.csv"),
+        os.path.join(csv_dir, "overall_best_by_accuracy.csv"),
     ]
 
     found_overall = False
 
     for csv_path in tqdm(overall_csv_paths, desc="Generating overall plots", unit="csv"):
-        if not osp.isfile(csv_path):
+        if not os.path.isfile(csv_path):
             continue
 
         plotter = ModelPerformancePlotter(csv_path=csv_path, top_k=top_k)

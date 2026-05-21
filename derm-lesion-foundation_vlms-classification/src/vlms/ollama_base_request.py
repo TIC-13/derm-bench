@@ -7,7 +7,7 @@ import requests
 import numpy as np
 from PIL import Image
 
-from ..utils.base_model import BaseImageTextModel
+from .base_model import BaseImageTextModel
 
 
 class OllamaInferRequest(BaseImageTextModel):
@@ -15,7 +15,7 @@ class OllamaInferRequest(BaseImageTextModel):
             self,
             model_id: str,
             temperature: float = 0.0,
-            api_url: str = "http://192.168.155.1:13755"
+            api_url: str = "http://192.168.155.4:11434/"
         ) -> None:
         super().__init__(model_id)
         self.temperature = temperature
@@ -47,7 +47,17 @@ class OllamaInferRequest(BaseImageTextModel):
             }
         }
 
-        resp = requests.post(f"{self.api_url}/api/generate", json=payload, stream=True)
+        payload = {
+            "model": self.vlm_model,
+            "prompt": final_prompt,
+            "images": [img_b64],
+            "stream": False,
+            "options": {
+                "temperature": self.temperature
+            }
+        }
+
+        resp = requests.post(f"{self.api_url}api/generate", json=payload, stream=True)
 
         output = ""
         for line in resp.iter_lines():

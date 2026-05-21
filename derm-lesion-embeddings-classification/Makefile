@@ -3,13 +3,11 @@
 help:
 	@echo "  help                Show this help message"
 	@echo "  embeddings          Generate embedding dataset"
-	@echo "  dimension-plots     Generate dimensionality plots (by dataset and label)"
 	@echo "  param-search        Run hyperparameter search (DL + ML)"
 	@echo "  training            Train classifiers"
 	@echo "  summary             Generate training summaries and plots"
 	@echo "  plots 			 	 Generate metrics plots (by dataset and label)"
 	@echo "  wrong-predictions   Generate wrong predictions analysis"
-	@echo "  venn-and-histograms Generate Venn diagrams and histograms"
 
 embeddings:
 	@echo "Generating embedding dataset..."

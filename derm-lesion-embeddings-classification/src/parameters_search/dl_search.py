@@ -82,8 +82,6 @@ class DynamicMLPFactory:
         )
 
 class DLPParameterSearch:
-    """Optuna HPO for MLP with early stopping (patience=10, min_delta threshold)."""
-
     def __init__(
             self,
             config_path: str,
@@ -237,15 +235,23 @@ class DLPParameterSearch:
             patience=self.patience,
         )
         if train_hp["optimizer"] == "adamw":
-            trainer.optimizer = torch.optim.AdamW(trainer.model.parameters(),
-                                                  lr=train_hp["lr"],
-                                                  weight_decay=train_hp["weight_decay"])
+            trainer.optimizer = torch.optim.AdamW(
+                trainer.model.parameters(),
+                lr=train_hp["lr"],
+                weight_decay=train_hp["weight_decay"]
+            )
         else:
-            trainer.optimizer = torch.optim.Adam(trainer.model.parameters(),
-                                                 lr=train_hp["lr"],
-                                                 weight_decay=train_hp["weight_decay"])
+            trainer.optimizer = torch.optim.Adam(
+                trainer.model.parameters(),
+                lr=train_hp["lr"],
+                weight_decay=train_hp["weight_decay"]
+            )
+
         trainer.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
-            trainer.optimizer, mode="min", patience=max(1, self.patience // 3), factor=0.5
+            trainer.optimizer,
+            mode="min",
+            patience=max(1, self.patience // 3),
+            factor=0.5
         )
 
         ckpt = Path(".optuna_tmp") / f"best_{_safe_name(model_name)}_{_safe_name(dataset)}_trial{trial.number}.pth"

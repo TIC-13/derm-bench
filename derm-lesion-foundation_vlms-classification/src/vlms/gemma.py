@@ -7,7 +7,7 @@ from transformers import (
     AutoProcessor
 )
 
-from ..utils.base_model import BaseImageTextModel
+from .base_model import BaseImageTextModel
 
 
 class GemmaModel(BaseImageTextModel):

@@ -1,0 +1,18 @@
+Model: svm_test
+Dataset: merged_clinic
+
+Detected classes: ['benign', 'malignant']
+Accuracy:  0.8657
+Precision: 0.8648
+Recall:    0.8661
+F1-score:  0.8653
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      benign       0.84      0.87      0.86       318
+   malignant       0.89      0.86      0.87       367
+
+    accuracy                           0.87       685
+   macro avg       0.86      0.87      0.87       685
+weighted avg       0.87      0.87      0.87       685

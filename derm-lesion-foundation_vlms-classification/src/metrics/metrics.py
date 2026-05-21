@@ -79,53 +79,42 @@ class MetricsAnalyzer:
                 )
             )
 
-    def collect_all_results(self) -> None:
-        """Collect all available evaluation results."""
+    def collect_all_results(self, config_name: str) -> None:
+        """Collect evaluation results only from one configuration folder."""
         self.results.clear()
 
         if not os.path.isdir(self.root_path):
             raise FileNotFoundError(f"Root path not found: {self.root_path}")
 
-        if "dual" in os.path.basename(self.root_path).lower():
-            for provider in os.listdir(self.root_path):
-                provider_path = os.path.join(self.root_path, provider)
+        config_path = os.path.normpath(self.root_path)
+        config_folder = os.path.basename(config_path)
 
-                if not os.path.isdir(provider_path):
-                    continue
+        if config_folder != config_name:
+            raise ValueError(
+                f"Wrong config folder. Expected '{config_name}', "
+                f"but got '{config_folder}' from path: {self.root_path}"
+            )
 
-                for model in os.listdir(provider_path):
-                    model_path = os.path.join(provider_path, model)
+        for dirpath, _, filenames in os.walk(config_path):
+            if "binary.txt" not in filenames:
+                continue
 
-                    if not os.path.isdir(model_path):
-                        continue
+            txt_path = os.path.join(dirpath, "binary.txt")
 
-                    for dataset in os.listdir(model_path):
-                        dataset_path = os.path.join(model_path, dataset)
+            rel_dir = os.path.relpath(dirpath, config_path)
+            parts = rel_dir.split(os.sep)
 
-                        if not os.path.isdir(dataset_path):
-                            continue
+            if len(parts) < 2:
+                continue
 
-                        txt_path = os.path.join(dataset_path, "binary.txt")
+            dataset = parts[-1]
+            model = "/".join(parts[:-1])
 
-                        if os.path.isfile(txt_path):
-                            self.parse_txt_file(txt_path, model, dataset)
-        else:
-            for model in os.listdir(self.root_path):
-                model_path = os.path.join(self.root_path, model)
-
-                if not os.path.isdir(model_path):
-                    continue
-
-                for dataset in os.listdir(model_path):
-                    dataset_path = os.path.join(model_path, dataset)
-
-                    if not os.path.isdir(dataset_path):
-                        continue
-
-                    txt_path = os.path.join(dataset_path, "binary.txt")
-
-                    if os.path.isfile(txt_path):
-                        self.parse_txt_file(txt_path, model, dataset)
+            self.parse_txt_file(
+                file_path=txt_path,
+                model=model,
+                dataset=dataset,
+            )
 
     def export_metric_matrix_csv(self, output_csv_path: str, metric: str) -> None:
         """Export a dataset-by-model metric matrix as CSV.
@@ -168,7 +157,7 @@ class MetricsAnalyzer:
         Returns:
             Dictionary mapping metric names to CSV paths.
         """
-        self.collect_all_results()
+        self.collect_all_results(config_name=base_name)
 
         os.makedirs(output_dir, exist_ok=True)
 

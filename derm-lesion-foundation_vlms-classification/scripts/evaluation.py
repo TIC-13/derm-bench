@@ -15,6 +15,7 @@ if __name__ == "__main__":
     datasets = cfg.get("datasets", [])
     configs = cfg.get("configs", [])
     dataset_path = cfg.get("datasets_root_path", "../datasets")
+    ollama_url = cfg.get("ollama_url", None)
 
     evaluator = EvaluationPipeline()
-    evaluator.evaluation(models, datasets, configs, dataset_path)
+    evaluator.evaluation(models, datasets, configs, dataset_path, ollama_url)

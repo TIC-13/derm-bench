@@ -1,7 +1,7 @@
 import os
 from typing import List
 
-from src.eval.base_model import BaseImageTextModel
+from src.vlms.base_model import BaseImageTextModel
 from src.vlms.gemma import GemmaModel
 from src.vlms.qwen import QwenModel
 from src.vlms.phi import PhiModel
@@ -14,7 +14,7 @@ from src.vlms.ollama_base_request import OllamaInferRequest
 
 class EvaluationPipeline:
     @staticmethod
-    def load_model(model_id: str) -> BaseImageTextModel:
+    def load_model(model_id: str, ollama_url: str) -> BaseImageTextModel:
         """Load the appropriate model wrapper from a model identifier.
 
         Args:
@@ -38,14 +38,15 @@ class EvaluationPipeline:
         elif model_id in ["openai/clip-vit-base-patch32", "openai/clip-vit-large-patch14"]:
             return CLIPImageTextModel(model_id)
         else:
-            return OllamaInferRequest(model_id)
+            return OllamaInferRequest(model_id, api_url=ollama_url)
 
     def evaluation(
             self,
             models: List[str],
             datasets: List[str],
             configs: List[str],
-            dataset_path: str = "../datasets"
+            dataset_path: str = "../datasets",
+            ollama_url: str = None
         ) -> None:
         """Run evaluations for all model, dataset, and config combinations.
 
@@ -57,7 +58,7 @@ class EvaluationPipeline:
         """
         for model in models:
 
-            model_vlm = self.load_model(model)
+            model_vlm = self.load_model(model, ollama_url)
 
             for dataset in datasets:
                 for config in configs:

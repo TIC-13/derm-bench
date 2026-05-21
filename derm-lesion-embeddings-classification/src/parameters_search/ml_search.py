@@ -66,7 +66,6 @@ class MLParameterSearch:
         )
 
     def _resolve_models_for_resource(self, resource: Dict[str, Any]) -> List[str]:
-        """Resolve which models to run for this resource/dataset loop."""
         if self.models_to_run:
             return self.models_to_run
         if "models" in resource:
@@ -78,10 +77,6 @@ class MLParameterSearch:
     def _load_splits_and_encode(
         self, dataset_path: str, dataset: str
     ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, LabelEncoder]:
-        """
-        Load train/validation DataFrames, apply optional undersampling to train,
-        encode labels consistently, and return (X_train, y_train, X_val, y_val, label_encoder).
-        """
         train_df = DataUtils.load_and_clean_h5(dataset_path, dataset, "train")
         val_df = DataUtils.load_and_clean_h5(dataset_path, dataset, "validation")
 
@@ -100,7 +95,6 @@ class MLParameterSearch:
         X_val: np.ndarray,
         y_val: np.ndarray,
     ) -> Dict[str, float]:
-        """Compute metrics on validation set; AUC only if predict_proba is available."""
         y_pred = estimator.predict(X_val)
 
         try:

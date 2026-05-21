@@ -12,7 +12,7 @@ try:
 except ImportError:
     process_vision_info = None
 
-from ..utils.base_model import BaseImageTextModel
+from .base_model import BaseImageTextModel
 
 
 class QwenModel(BaseImageTextModel):

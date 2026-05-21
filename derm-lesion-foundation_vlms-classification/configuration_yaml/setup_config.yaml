@@ -20,33 +20,33 @@ models:
   - qwen2.5vl:72b
   - llama3.2-vision:90b
 
+ollama_url: http://192.168.155.4:11434/
+
 datasets_root_path: ../datasets
 
 datasets:
   # NO EXTRA INFO DATASETS
   - ddi
   - sd-198
+  - HAM10000
 
   # EXTRA INFO DATASETS
   - HC
   - PAD
   - ISIC24
   - ISIC18
-  - HAM10000
 
   # MERGED VERSIONS
   - merged_clinic
   - merged_dermatoscopic
   - merged
 
-# CONFIGURATIONS PROMPT FILES
 configs:
   - vlm_dual_encoder 
   - vlm_prompt_simple
   - vlm_prompt_patient_info
   - vlm_prompt_abcde_rules
 
-# PATHS
 report_paths:
   - ./results/reports/vlm_dual_encoder
   - ./results/reports/vlm_prompt_simple

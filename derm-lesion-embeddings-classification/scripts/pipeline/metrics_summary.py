@@ -1,4 +1,4 @@
-from os import path as osp
+import os
 import argparse
 from typing import List, Tuple
 
@@ -26,7 +26,7 @@ if __name__ == "__main__":
         analyzer = MetricsAnalyzer(train_output_path)
 
         base_name = resource.get("summary_name", name)
-        base_name = osp.basename(osp.normpath(base_name))
+        base_name = os.path.basename(os.path.normpath(base_name))
 
         out_paths = analyzer.save_metric_csvs(output_dir=csv_output_dir, base_name=base_name)
 
@@ -38,8 +38,8 @@ if __name__ == "__main__":
         for metric, p in out_paths.items():
             print(f"Saved {metric} CSV for {name}: {p}")
 
-    overall_f1_path = osp.join(default_csv_output_dir, "overall_best_by_f1_avg.csv")
-    overall_accuracy_path = osp.join(default_csv_output_dir, "overall_best_by_accuracy.csv")
+    overall_f1_path = os.path.join(default_csv_output_dir, "overall_best_by_f1_avg.csv")
+    overall_accuracy_path = os.path.join(default_csv_output_dir, "overall_best_by_accuracy.csv")
 
     export_global_best_csv(
         output_csv_path=overall_f1_path,

@@ -4,7 +4,7 @@ import torch
 from PIL import Image
 from transformers import AutoProcessor, AutoModel
 
-from ..utils.base_model import BaseImageTextModel
+from .base_model import BaseImageTextModel
 
 
 class MedSigLIP(BaseImageTextModel):

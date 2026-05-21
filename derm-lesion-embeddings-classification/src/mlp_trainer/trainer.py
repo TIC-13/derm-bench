@@ -1,4 +1,4 @@
-from typing import Union, Optional, Tuple, List
+from typing import Union, Optional, Tuple
 
 from sklearn.preprocessing import LabelEncoder
 import torch

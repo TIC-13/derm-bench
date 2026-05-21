@@ -92,6 +92,11 @@ augmentation:
     shear: 0.0
     fill_white: true
 
+default: 
+  enabled: false
+  ratio: 1.0
+  random_state: 42
+
 undersampling:
   enabled: false
   method: min_class # min_class | max_per_class | ratio

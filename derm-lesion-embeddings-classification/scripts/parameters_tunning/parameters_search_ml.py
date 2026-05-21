@@ -1,6 +1,7 @@
 import argparse
 
 from src.parameters_search.ml_search import MLParameterSearch
+from src.config.seed_setting import set_global_seed
 
 
 if __name__ == "__main__":
@@ -13,6 +14,8 @@ if __name__ == "__main__":
     parser.add_argument("--scoring", type=str, default="f1_macro", help="sklearn scoring metric (default: f1_macro)")
     parser.add_argument("--seed", type=int, default=42, help="Random seed (default: 42)")
     args = parser.parse_args()
+
+    set_global_seed()
 
     search = MLParameterSearch(
         config_path=args.config,

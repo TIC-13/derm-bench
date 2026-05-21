@@ -4,7 +4,7 @@ import torch
 from PIL import Image
 from open_clip import create_model_from_pretrained, get_tokenizer
 
-from ..utils.base_model import BaseImageTextModel
+from .base_model import BaseImageTextModel
 
 
 class BiomedCLIP(BaseImageTextModel):

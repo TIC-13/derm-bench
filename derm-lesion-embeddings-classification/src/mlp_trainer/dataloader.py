@@ -1,31 +1,33 @@
 from typing import Tuple
 
 import numpy as np
+from numpy import typing
+import pandas as pd
 import torch
 from torch.utils.data import Dataset, DataLoader
 
 class TabularDataset(Dataset):
-    def __init__(self, df):
+    def __init__(self, df) -> None:
         self.X = df.iloc[:, 2:].to_numpy(dtype=np.float32)
         self.y = df["benign_malignant"].to_numpy(dtype=np.int64)
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self.X)
 
-    def __getitem__(self, idx):
+    def __getitem__(self, idx) -> tuple[torch.Tensor, torch.Tensor]:
         return torch.tensor(self.X[idx]), torch.tensor(self.y[idx])
 
 
 class MLPDatasetLoader:
     def __init__(
         self,
-        train_df,
-        val_df,
-        test_df,
-        batch_size=512,
-        use_smote=False,
-        smote_ratio=1.0,
-        seed=42,
+        train_df: pd.DataFrame,
+        val_df: pd.DataFrame,
+        test_df: pd.DataFrame,
+        batch_size: int = 512,
+        use_smote: bool = True,
+        smote_ratio: float = 1.0,
+        smote_seed: int = 42,
     ):
         self.train_dataset = TabularDataset(train_df)
         if use_smote:
@@ -33,7 +35,7 @@ class MLPDatasetLoader:
                 self.train_dataset.X,
                 self.train_dataset.y,
                 ratio=smote_ratio,
-                seed=seed,
+                seed=smote_seed,
             )
             self.train_dataset.X = X_aug.astype(np.float32)
             self.train_dataset.y = y_aug.astype(np.int64)
@@ -42,7 +44,13 @@ class MLPDatasetLoader:
         self.test_dataset = TabularDataset(test_df)
         self.batch_size = batch_size
 
-    def _smote_lite_offline(self, X, y, ratio=1.0, seed=42):
+    def _smote_lite_offline(
+            self,
+            X: typing.NDArray[np.float32],
+            y: typing.NDArray[np.float32],
+            ratio: float = 1.0,
+            seed: int = 42
+        ) -> tuple[typing.NDArray[np.float32], typing.NDArray[np.int64]]:
         rng = np.random.default_rng(seed)
 
         classes, counts = np.unique(y, return_counts=True)
