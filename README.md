@@ -52,6 +52,83 @@ derm-bench/
 - **Disk space:** Raw dermatology image collections are large; plan tens of GB per full benchmark grid.
 - **Optional:** [Ollama](https://ollama.com/) for local vision-language models in the VLM project.
 
+
+## Datasets Used
+
+Some datasets were already provided with predefined train/validation/test splits by the original authors. To ensure fair comparison, these official splits were preserved whenever available. For datasets without predefined splits, a standardized 70%/15%/15% train/validation/test division was adopted to maintain consistency across experiments.
+
+In some datasets, the number of images used is lower than the total number of available images due to missing labels. For ISIC24, the sample size was reduced due to its substantial imbalance relative to the other datasets.
+
+### PAD-UFES-20
+- Source: [PAD-UFES-20: a skin lesion dataset composed of patient data and clinical images collected from smartphones](https://data.mendeley.com/datasets/zr7vgbcyr2/1)
+- Modality: Clinical images
+- Total images: 2,298
+- Split: Official dataset split
+- Train: 1,723 (74.98%)
+- Validation: 287 (12.49%)
+- Test: 288 (12.53%)
+
+### HAM10000
+- Source: [HAM10000](https://api.isic-archive.com/collections/212/)
+- Modality: Dermoscopic images
+- Total images: 11,720
+- Split: Official dataset split
+- Train: 8,790 (75.00%)
+- Validation: 1,465 (12.50%)
+- Test: 1,465 (12.50%)
+
+### ISIC18
+- Source: [ISIC18](https://challenge.isic-archive.com/data/#2018)
+- Modality: Dermoscopic images
+- Total images: 11,720
+- Split: Official dataset split
+- Train: 10015 (85.45%)
+- Validation: 193 (1.65%)
+- Test: 1512 (12.90%)
+
+### ISIC24
+- Source: [ISIC24](https://challenge.isic-archive.com/data/#2024)
+- Modality: Dermoscopic images
+- Total images: 401,059
+- Used images: 1,000
+- Split: Predefined
+- Train: 700 (70.00%)
+- Validation: 150 (15.00%)
+- Test: 150 (15.00%)
+
+### DDI (Diverse Dermatology Images)
+- Source: [DDI - Diverse Dermatology Images](https://stanford.redivis.com/datasets/3r16-5mby7gfer)
+- Modality: Clinical images
+- Total images: 656
+- Used images: 371
+- Split: Official dataset split
+- Train: 316 (85.18%)
+- Validation: 28 (7.55%)
+- Test: 27 (7.28%)
+
+### SD-198
+- Source: [SD-198](https://derm.cs.sfu.ca/Welcome.html)
+- Modality: Dermoscopic images
+- Total images: 6,583
+- Used images: 552
+- Split: Predefined
+- Train: 386 (69.93%)
+- Validation: 83 (15.04%)
+- Test: 83 (15.04%)
+
+### HC (Hospital das Clínicas)
+- Source: Hospital das Clínicas
+- Institution: Universidade Federal de Pernambuco (UFPE)
+- Notes: Clinical smartphone images collected under a research protocol.
+- Modality: Clinical images
+- Total images: 5,918
+- Used images: 2,507
+- Split: Predefined
+- Train: 1,754 (69.96%)
+- Validation: 376 (15.00%)
+- Test: 377 (15.04%)
+
+
 ## Dataset layout
 
 Place prepared datasets at the repository root under `datasets/<dataset_name>/`:
