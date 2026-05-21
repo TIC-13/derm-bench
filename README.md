@@ -1,5 +1,7 @@
 # derm-bench
 
+"Bridging Research and Practice: A Systematic Evaluation of Generalist and Dermatology-Specific Models in Clinical Skin Lesion Classification", approved at [MICCAI2026](), [Paper]()
+
 Benchmark suite for **binary benign vs. malignant** dermatology lesion classification across public and merged datasets, comparing three complementary modeling paradigms in a single monorepo.
 
 ## Overview
@@ -142,3 +144,17 @@ Not tracked in git (see [`.gitignore`](.gitignore)). You must download or genera
 ## License
 
 This project is licensed under the [Apache License 2.0](LICENSE).
+
+## Acknowledgments
+
+The project was supported by the Ministry of Science, Technology, and Innovation of Brazil, with resources from Law No. 8,248, dated October 23, 1991, under the scope of the PPI-SOFTEX, coordinated by Softex and published under RESIDÊNCIA EM TIC 63 – ROBÓTICA E IA – FASE II, DOU 23076.043130/2025-27 and partially supported by INES.IA (National Institute of Science and Technology for Software Engineering Based on and for Artificial Intelligence) www.ines.org.br, CNPq grant 408817/2024-0.
+
+## Contact
+
+website: [Criar](criar.cin.ufpe.br)\
+email: criar@softex.cin.ufpe.br;\
+authors email: etcs@softex.cin.ufpe.br; kbc@softex.cin.ufpe.br; tir@cin.ufpe.br
+
+## Citation
+
+{}
