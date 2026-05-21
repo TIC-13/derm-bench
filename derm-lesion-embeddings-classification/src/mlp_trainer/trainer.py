@@ -1,10 +1,11 @@
+from pathlib import Path
 from typing import Union, Optional, Tuple
 
-from sklearn.preprocessing import LabelEncoder
+import yaml
 import torch
 import torch.nn.functional as F
-from torch.utils.data import DataLoader
 import numpy as np
+from torch.utils.data import DataLoader
 from sklearn.metrics import (
     accuracy_score,
     f1_score,
@@ -13,11 +14,11 @@ from sklearn.metrics import (
     roc_auc_score,
     classification_report
 )
+from sklearn.preprocessing import LabelEncoder
 from torch.utils.tensorboard import SummaryWriter
 
 
 class MLPTrainer:
-    """Trainer class handling training, validation, testing, and metrics."""
     def __init__(
         self,
         model: torch.nn.Module,
@@ -25,12 +26,7 @@ class MLPTrainer:
         val_loader: DataLoader,
         test_loader: DataLoader,
         device: Optional[Union[str, torch.device]],
-        lr: float = 1e-4,
-        patience: int = 10,
-        smoothing: float = 0.1,
-        scheduler_patience: int = 3,
-        scheduler_factor: float = 0.5,
-        scheduler_mode: str = "min",
+        config_path: Union[str, Path] = "configuration/models_config.yaml",
     ):
         self.model = model
         self.train_loader = train_loader
@@ -38,7 +34,16 @@ class MLPTrainer:
         self.test_loader = test_loader
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.device)
-        self.patience = patience
+        self.config_path = config_path
+
+        training_params = self._load_training_params()
+
+        lr = training_params["lr"]
+        self.patience = training_params["patience"]
+        smoothing = training_params["smoothing"]
+        scheduler_patience = training_params["scheduler_patience"]
+        scheduler_factor = training_params["scheduler_factor"]
+        scheduler_mode = training_params["scheduler_mode"]
 
         self.criterion = torch.nn.CrossEntropyLoss(
             label_smoothing=smoothing
@@ -48,7 +53,7 @@ class MLPTrainer:
             self.model.parameters(),
             lr=lr
         )
-        
+
         self.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
             self.optimizer,
             mode=scheduler_mode,
@@ -58,6 +63,11 @@ class MLPTrainer:
 
         self.writer = SummaryWriter()
 
+    def _load_training_params(self) -> dict:
+        with open(self.config_path, "r") as file:
+            config = yaml.safe_load(file)
+
+        return config["models"]["mlp"]["training_params"]
 
     def train(self):
         """Train the model until early stopping.

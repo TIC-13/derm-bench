@@ -14,15 +14,6 @@ Benchmark suite for **binary benign vs. malignant** dermatology lesion classific
 | [derm-lesion-foundation_vlms-classification](derm-lesion-foundation_vlms-classification/) | Vision-language and dual-encoder models (prompt-based / similarity) | CSV metadata + `images/` (test split) | `configuration_yaml/setup_config.yaml` |
 | [derm-lesion-embeddings-classification](derm-lesion-embeddings-classification/) | Frozen foundation backbones → embeddings → classical / MLP heads | H5 metadata + `images/` | `configuration/config.yaml` |
 
-```mermaid
-flowchart TB
-  notebooks[notebooks/ CSV prep] --> datasets["datasets/"]
-  merger[dataset_merger/] --> datasets
-  datasets --> cnn[derm-lesion-cnn_vit_classification]
-  datasets --> vlm[derm-lesion-foundation_vlms-classification]
-  datasets --> emb[derm-lesion-embeddings-classification]
-```
-
 ## Features
 
 - **Unified task:** Binary malignancy classification with consistent labels and metrics across pipelines.
@@ -117,9 +108,9 @@ In some datasets, the number of images used is lower than the total number of av
 - Test: 83 (15.04%)
 
 ### HC (Hospital das Clínicas)
-- Source: Hospital das Clínicas
+- Source Paper: [DermAI: Clinical dermatology acquisition through quality-driven image collection for AI classification in mobile](https://arxiv.org/abs/2511.10367)
 - Institution: Universidade Federal de Pernambuco (UFPE)
-- Notes: Clinical smartphone images collected under a research protocol.
+- Notes: Clinical smartphone images collected by brazilian doctors under a research protocol.
 - Modality: Clinical images
 - Total images: 5,918
 - Used images: 2,507

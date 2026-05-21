@@ -1,11 +1,11 @@
-import os
 import json
+from pathlib import Path
+from typing import Dict, Any
+
 import yaml
 import optuna
 import torch
 import numpy as np
-from pathlib import Path
-from typing import Dict, Any
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
@@ -18,8 +18,12 @@ from src.embeddings.undersampling import UndersamplingUtils
 def _safe_name(s: str) -> str:
     return s.replace("/", "_").replace(" ", "_")
 
+# TODO: READ PARAMETERS FROM THE YAML CONFIG FILE
+
 class DynamicMLPFactory:
     ACTIVATIONS = {
+        "sigmoid": torch.nn.Sigmoid,
+        "tanh": torch.nn.Tanh,
         "relu": torch.nn.ReLU,
         "gelu": torch.nn.GELU,
         "leaky_relu": lambda: torch.nn.LeakyReLU(negative_slope=0.1),
@@ -30,8 +34,8 @@ class DynamicMLPFactory:
         input_dim: int,
         n_hidden_layers: int,
         hidden_units: int,
-        width_scheme: str,      # "constant" | "pyramid"
-        activation: str,        # "relu" | "gelu" | "leaky_relu"
+        width_scheme: str,
+        activation: str,
         use_batch_norm: bool,
         use_dropout: bool,
         dropout: float,
@@ -181,12 +185,30 @@ class DLPParameterSearch:
     ) -> float:
 
         hparams = {
-            "n_hidden_layers": trial.suggest_int("n_hidden_layers", 0, 3),
-            "hidden_units": trial.suggest_categorical("hidden_units", [128, 256, 512, 1024]),
-            "width_scheme": trial.suggest_categorical("width_scheme", ["constant", "pyramid"]),
-            "activation": trial.suggest_categorical("activation", ["relu", "gelu", "leaky_relu"]),
-            "use_batch_norm": trial.suggest_categorical("use_batch_norm", [True, False]),
-            "use_dropout": trial.suggest_categorical("use_dropout", [True, False]),
+            "n_hidden_layers": trial.suggest_int(
+                "n_hidden_layers",
+                0, 3
+            ),
+            "hidden_units": trial.suggest_categorical(
+                "hidden_units",
+                [128, 256, 512, 1024]
+            ),
+            "width_scheme": trial.suggest_categorical(
+                "width_scheme",
+                ["constant", "pyramid"]
+            ),
+            "activation": trial.suggest_categorical(
+                "activation",
+                ["relu", "gelu", "leaky_relu", "sigmoid", "tanh"]
+            ),
+            "use_batch_norm": trial.suggest_categorical(
+                "use_batch_norm",
+                [True, False]
+            ),
+            "use_dropout": trial.suggest_categorical(
+                "use_dropout",
+                [True, False]
+            ),
         }
         hparams["dropout"] = trial.suggest_float("dropout", 0.0, 0.6) if hparams["use_dropout"] else 0.0
 
@@ -355,8 +377,7 @@ class DLPParameterSearch:
 
                 best_f1 = float(study.best_value)
                 best_params = study.best_params
-                # include fixed training constants for transparency
-                best_params["lr"] = best_params.get("lr")  # already there
+                best_params["lr"] = best_params.get("lr")
                 best_params["optimizer"] = best_params.get("optimizer")
                 best_params["weight_decay"] = best_params.get("weight_decay", 0.0)
                 best_params["use_weight_decay"] = best_params.get("use_weight_decay", best_params["weight_decay"] > 0)

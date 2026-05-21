@@ -106,3 +106,68 @@ models:
       hidden_dim2: 256
       output_dim: 2
       dropout: 0.3
+
+    training_params:
+      lr: 1e-4
+      patience: 10
+      smoothing: 0.1
+      scheduler_patience: 3
+      scheduler_factor: 0.5
+      scheduler_mode: min
+
+    search_space:
+      n_hidden_layers:
+        type: int
+        low: 0
+        high: 3
+
+      hidden_units:
+        type: categorical
+        choices: [128, 256, 512, 1024]
+
+      width_scheme:
+        type: categorical
+        choices: [constant, pyramid]
+
+      activation:
+        type: categorical
+        choices: [sigoid, tanh, relu, gelu, leaky_relu]
+
+      use_batch_norm:
+        type: categorical
+        choices: [true, false]
+
+      use_dropout:
+        type: categorical
+        choices: [true, false]
+
+      dropout:
+        type: float
+        low: 0.0
+        high: 0.6
+        condition:
+          parameter: use_dropout
+          equals: true
+
+      lr:
+        type: float
+        low: 1e-5
+        high: 1e-2
+        log: true
+
+      optimizer:
+        type: categorical
+        choices: [adam, adamw]
+
+      use_weight_decay:
+        type: categorical
+        choices: [true, false]
+
+      weight_decay:
+        type: float
+        low: 1e-8
+        high: 1e-3
+        log: true
+        condition:
+          parameter: use_weight_decay
+          equals: true
