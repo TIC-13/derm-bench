@@ -85,14 +85,19 @@ class BaseImageTextModel(ABC):
             Normalized prediction label.
         """
         pred = re.sub(r"[^a-zA-Z ]+", "", pred_raw).strip().lower()
+
         has_malignant = "malignant" in pred
         has_benign = "benign" in pred
 
+        if has_malignant and has_benign:
+            return "error"
+
         if has_malignant:
             return "malignant"
+
         if has_benign:
             return "benign"
-        
+
         return "error"
 
     def _inference_row(
