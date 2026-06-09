@@ -1,6 +1,6 @@
 # derm-bench
 
-"Bridging Research and Practice: A Systematic Evaluation of Generalist and Dermatology-Specific Models in Clinical Skin Lesion Classification", approved at [MICCAI2026](), [Paper]()
+"Bridging Research and Practice: A Systematic Evaluation of Generalist and Dermatology-Specific Models in Clinical Skin Lesion Classification", early accept at [MICCAI2026](https://conferences.miccai.org/2026/en/default.asp), [Paper]()
 
 Benchmark suite for **binary benign vs. malignant** dermatology lesion classification across public and merged datasets, comparing three complementary modeling paradigms in a single monorepo.
 
