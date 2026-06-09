@@ -225,4 +225,9 @@ authors email: etcs@softex.cin.ufpe.br; kbc@softex.cin.ufpe.br; tir@cin.ufpe.br
 
 ## Citation
 
-{}
+@inproceedings{dosSantos2026,
+  title={Bridging Research and Practice: A Systematic Evaluation of Generalist and Dermatology-Specific Models in Clinical Skin Lesion Classification},
+  author={dos Santos, Emanoel dos Santos and Cunha, Kelvin and Mota, Rodrigo and Papais, Fabio and Bezerra, Thales and Lopes, Natalia and Medeiros, Erico and Cruz, Shirley and Araujo, Jessica and Borba, Paulo and Ing Ren, Tsang},
+  booktitle={MICCAI, 2026},
+  year={2026}
+}
