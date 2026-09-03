@@ -73,9 +73,9 @@ In some datasets, the number of images used is lower than the total number of av
 - Modality: Dermoscopic images
 - Total images: 11,720
 - Split: Official dataset split
-- Train: 10015 (85.45%)
+- Train: 10,015 (85.45%)
 - Validation: 193 (1.65%)
-- Test: 1512 (12.90%)
+- Test: 1,512 (12.90%)
 
 ### ISIC24
 - Source: [ISIC24](https://challenge.isic-archive.com/data/#2024)
@@ -165,6 +165,8 @@ This creates three merged folders under `datasets/`:
 | `merged_clinic` | HC, PAD, ddi, sd-198 |
 | `merged_dermatoscopic` | ISIC18, ISIC24 |
 | `merged` | All of the above |
+
+HAM10000 was not merged because it is equivalent to the ISIC18 training split.
 
 See [`dataset_merger/merge_datasets.py`](dataset_merger/merge_datasets.py) and [`dataset_merger/merger.py`](dataset_merger/merger.py) for implementation details.
 
