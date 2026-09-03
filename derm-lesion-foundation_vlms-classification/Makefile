@@ -2,13 +2,14 @@
 
 help:
 	@echo "Available commands:"
-	@echo "  make install         -> Install Python dependencies"
-	@echo "  make install-ollama  -> Install Ollama"
-	@echo "  make pull-models     -> Download Ollama models"
-	@echo "  make dataset-merge   -> Process / merge datasets"
-	@echo "  make eval            -> Run evaluation pipeline"
-	@echo "  make summary         -> Generate results summary"
-	@echo "  make plots           -> Generate result plots"
+	@echo "  make install         		-> Install Python dependencies"
+	@echo "  make install-ollama  		-> Install Ollama"
+	@echo "  make pull-models     		-> Download Ollama models"
+	@echo "  make dataset-merge   		-> Process / merge datasets"
+	@echo "  make eval            		-> Run evaluation pipeline"
+	@echo "  make summary         		-> Generate results summary"
+	@echo "  make plots           		-> Generate result plots"
+	@echo "  make alucinations_plots    -> Generate alucinations plots"
 
 install:
 	pip install -r requirements.txt
@@ -35,3 +36,6 @@ summary:
 
 plots:
 	python3 -m scripts.results_plots --config ./configuration_yaml/setup_config.yaml
+
+alucinations_plots:
+	python3 -m scripts.alucination_plots --config configuration_yaml/setup_config.yaml

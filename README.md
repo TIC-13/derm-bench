@@ -62,11 +62,11 @@ In some datasets, the number of images used is lower than the total number of av
 ### HAM10000
 - Source: [HAM10000](https://api.isic-archive.com/collections/212/)
 - Modality: Dermoscopic images
-- Total images: 11,720
-- Split: Official dataset split
-- Train: 8,790 (75.00%)
-- Validation: 1,465 (12.50%)
-- Test: 1,465 (12.50%)
+- Total images: 10,015
+- Split: Custom dataset split
+- Train: 7,513 (75.00%)
+- Validation: 1,251 (12.50%)
+- Test: 1,251 (12.50%)
 
 ### ISIC18
 - Source: [ISIC18](https://challenge.isic-archive.com/data/#2018)
